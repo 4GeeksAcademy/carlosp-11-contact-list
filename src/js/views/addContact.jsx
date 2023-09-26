@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 
 export const AddContact = () => {
@@ -49,8 +50,12 @@ export const AddContact = () => {
           <input type="text" className="form-control" id="exampleInputAddress" onChange={(e) => { setContactAddress(e.target.value) }} />
         </div>
         <div>
-          <button type="submit" className="btn btn-primary mx-1"> Save </button>
-          <button type="reset" className="btn btn-danger  mx-1"> Cancel </button>
+        
+            <button type="submit" className="btn btn-primary mx-1"> Save </button>
+          
+          <Link to="/contact">
+            <button className="btn btn-danger  mx-1"> Cancel </button>
+          </Link>
         </div>
       </form>
     </div>
