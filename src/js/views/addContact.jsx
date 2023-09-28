@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export const AddContact = () => {
@@ -9,7 +9,7 @@ export const AddContact = () => {
   const [contactPhone, setContactPhone] = useState();
   const [contactAddress, setContactAddress] = useState();
   const [contactEmail, setContactEmail] = useState();
-
+  const navigate = useNavigate();
 
   const addContact = (event) => {
     event.preventDefault();
@@ -22,11 +22,12 @@ export const AddContact = () => {
       phone: contactPhone
     }
     actions.addContact(user);
-    actions.getUsers();
+   // actions.getUsers();   ----- quizas no hace falta
     setContactAddress('');
     setContactEmail('');
     setContactName('');
     setContactPhone('');
+    navigate("/contact");
   }
 
   return (
@@ -51,7 +52,7 @@ export const AddContact = () => {
         </div>
         <div>
         
-            <button type="submit" className="btn btn-primary mx-1"> Save </button>
+            <button type="submit" className="btn btn-primary mx-1" > Save </button>
           
           <Link to="/contact">
             <button className="btn btn-danger  mx-1"> Cancel </button>

@@ -37,8 +37,9 @@ export const ContactCard = (props) => {
       address: contactAddress,
       phone: contactPhone
     }
+    console.log(user);
     actions.editContact(user, props.id);
-    actions.getUsers();
+    //actions.getUsers();    --- Quizas no hace falta
     setContactAddress('');
     setContactEmail('');
     setContactName('');
@@ -83,19 +84,27 @@ export const ContactCard = (props) => {
 
               <div className="mb-3">
                 <label htmlFor="exampleInputFullName" className="form-label">Full Name</label>
-                <input type="text" className="form-control" id="exampleInputFullName" onChange={(e) => { setContactName(e.target.value) }} /> 
+                <input type="text" className="form-control" id="exampleInputFullName" value = {contactName}
+                onChange={(e) => { setContactName(e.target.value) }} defaultValue={props.name}
+                />
               </div>
               <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" onChange={(e) => { setContactEmail(e.target.value) }} />
+                <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
+                <input type="email" className="form-control" id="exampleInputEmail1" value = {contactEmail}
+                onChange={(e) => { setContactEmail(e.target.value) }} defaultValue={props.email} 
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputPhone" className="form-label">Phone</label>
-                <input type="text" className="form-control" id="exampleInputPhone" onChange={(e) => { setContactPhone(e.target.value) }} />
+                <input type="text" className="form-control" id="exampleInputPhone" value = {contactPhone}
+                onChange={(e) => { setContactPhone(e.target.value) }} defaultValue={props.phone} 
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputAddress" className="form-label">Address</label>
-                <input type="text" className="form-control" id="exampleInputAddress" onChange={(e) => { setContactAddress(e.target.value) }} />
+                <input type="text" className="form-control" id="exampleInputAddress" value = {contactAddress}
+                onChange={(e) => { setContactAddress(e.target.value) }} defaultValue={props.address}
+                />
               </div>
             </Modal.Body>
             <Modal.Footer>
