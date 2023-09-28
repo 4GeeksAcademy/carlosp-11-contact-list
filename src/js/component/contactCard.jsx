@@ -46,10 +46,17 @@ export const ContactCard = (props) => {
     setContactPhone('');
   }
 
+  const handleVar = () => {
+    setContactAddress(props.address);
+    setContactEmail(props.email);
+    setContactName(props.name);
+    setContactPhone(props.phone);
+  }
+
   let title = props.name;
 
   return (
-    <div>
+    <div onLoad={handleVar}>
       <div className="card mb-3 d-flex justify-content-between" >
         <div className="row">
           <div className="col-md-2">
@@ -70,8 +77,6 @@ export const ContactCard = (props) => {
           </div>
         </div>
       </div>
-
-
 
       {/*Modal para editar contacto*/}
       <>
@@ -113,16 +118,8 @@ export const ContactCard = (props) => {
             </Modal.Footer>
           </form>
         </Modal>
-
-        
-
-
       </>
-
-
-
-
-
     </div >
   )
 }
+
